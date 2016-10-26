@@ -11,6 +11,15 @@ For simplicity a Vagrant file is included. To start you will need:
 
 Then simply run `vagrant up`.
 
+Due to technical limitations, if you make changes to any client side code you
+need to manually run the build command inside the VM by running:
+
+```
+vagrant ssh
+cd /home/ubuntu/website
+npm run build
+```
+
 ### Simple PHP Server
 
 Alternatively, for a simple local development environment running on PHP, you will need:
