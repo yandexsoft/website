@@ -93,16 +93,25 @@ export const scripts = {
     module: {
         loaders: [
             { test: /\.js$/, loader: 'babel', exclude: /node_modules/ },
-            { test: /\.css$/, loader: 'style!css!postcss' }
+            { test: /\.css$/, loader: 'style!css!postcss' },
+            { test: /\.vue$/, loader: 'vue-loader' }
         ]
     },
     resolve: {
         alias: {
             '~': path.resolve(__dirname, '_scripts'),
-            'styles': path.resolve(__dirname, '_styles')
+            'styles': path.resolve(__dirname, '_styles'),
+
+            'vue': 'vue/dist/vue.js'
         }
     },
     postcss: styles.postcss,
+    vue: {
+        loaders: {
+            js: 'babel',
+            postcss: styles.postcss
+        }
+    },
     plugins: [
         new webpack.optimize.CommonsChunkPlugin({
             name: 'common',
@@ -119,7 +128,7 @@ export const scripts = {
         }),
         new webpack.DefinePlugin({
             'process.env': {
-                'NODE_ENV': JSON.stringify('production')
+                'NODE_ENV': '"production"'
             }
         })
     ],
