@@ -3,7 +3,7 @@
             <footer>
                 <div>
                     <p>Copyright &copy; <?php echo date('Y'); ?> elementary LLC.</p>
-                    <ele-popover>
+                    <ele-popover id="page-language-selector">
                         <span slot="trigger"><i class="fa fa-language"></i> Language</span>
 
                         <div slot="content">
@@ -15,8 +15,15 @@
                                 <li><a href="<?php echo $path; ?>" rel="alternate" hreflang="<?php echo str_replace('_', '-', $langCode); ?>" data-l10n-off>
                                     <?php echo $langName; ?>
                                 </a></li>
+                                <?php
+                                if ($langCode == 'en') {
+                                    ?>
+                                    <hr>
+                                    <?php
+                                }
+                            }
+                            ?>
                             </ul>
-                            <?php } ?>
                         </div>
                     </ele-popover>
                 </div>
