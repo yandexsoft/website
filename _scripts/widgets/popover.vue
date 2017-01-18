@@ -189,7 +189,7 @@
     .slide-fade-enter-active,
     .slide-fade-leave-active {
         opacity: 1;
-        transition: opacity 0.3s ease;
+        transition: opacity 250ms ease;
     }
 
     .slide-fade-enter,
