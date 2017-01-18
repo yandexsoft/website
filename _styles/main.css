@@ -276,7 +276,7 @@ nav a:visited {
     display: inline-block;
     fill: inherit;
     margin: 0;
-    padding: 0 16px;
+    padding: 0 12px;
 }
 
 nav a:focus {
@@ -436,7 +436,7 @@ footer ul li a:focus {
         width: calc(33% - 88px);
     }
 
-    .column + .column {
+    .column + .column + .column {
         margin-left: 16px !important;
     }
 }
@@ -585,7 +585,9 @@ a.third:hover {
 }
 
 .column.alert {
+    margin: 5px;
     max-width: calc(100% - 70px);
+    padding: 5px;
 }
 
 .row.alert > .column.alert {
