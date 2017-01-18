@@ -102,7 +102,7 @@ export const scripts = {
             '~': path.resolve(__dirname, '_scripts'),
             'styles': path.resolve(__dirname, '_styles'),
 
-            'vue': 'vue/dist/vue.js'
+            'vue': 'vue/dist/vue.min.js'
         }
     },
     postcss: styles.postcss,
