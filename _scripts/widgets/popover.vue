@@ -10,9 +10,12 @@
         props: {
             placement: {
                 type: String,
-                default: 'north'
+                default: 'north',
+                validator: (value) => ['north', 'south'].indexOf(value) !== -1
             },
 
+            // margin is the number of pixels to offset the popover from the
+            // trigger
             margin: {
                 type: Number,
                 default: 20
@@ -102,7 +105,23 @@
                             break
                     }
                 }, 0)
+            },
+
+            // onGlobalClick handles any browser clicks to determine if the
+            // popover should hide or not.
+            onGlobalClick (e) {
+                if (!this.$el.contains(e.target)) {
+                    this.hide()
+                }
             }
+        },
+
+        created () {
+            document.addEventListener('click', this.onGlobalClick)
+        },
+
+        beforeDestroy () {
+            document.removeEventListener('click', this.onGlobalClick)
         }
     }
 </script>
@@ -161,8 +180,6 @@
     }
 
     .popover__content {
-        max-height: 90vh;
-        max-width: 90vw;
         overflow: auto;
     }
 
