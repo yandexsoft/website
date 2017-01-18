@@ -13,7 +13,6 @@
                 default: 'north'
             },
 
-            // margin is dynamicly given in pixels
             margin: {
                 type: Number,
                 default: 20
@@ -68,11 +67,14 @@
 
             show () {
                 this.visible = true
+                document.body.style.overflow = 'hidden'
+
                 this.getAlignment()
             },
 
             hide () {
                 this.visible = false
+                document.body.style.overflow = 'visible'
             },
 
             // getAlignment calculates what the top and left style values should
@@ -114,8 +116,10 @@
         </div>
 
         <transition name="slide-fade">
-            <div class="popover__content" v-bind:style="styleObject" v-show="visible">
-                <slot name="content"></slot>
+            <div class="popover__container" v-bind:style="styleObject" v-show="visible">
+                <div class="popover__content">
+                    <slot name="content"></slot>
+                </div>
             </div>
         </transition>
     </div>
@@ -135,28 +139,31 @@
     }
 
     .popover__container {
-        display: absolute;
-    }
-
-    .popover__content {
         background: white;
         border-radius: 5px;
         border: 1px solid rgba(0, 0, 0, 0.2);
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         color: #333;
+        overflow: visible;
         position: absolute;
         text-align: left;
         z-index: 2;
     }
 
-    .popover__content::before,
-    .popover__content::after {
+    .popover__container::before,
+    .popover__container::after {
         border: 10px outset transparent;
         content: "";
         display: block;
         height: 0;
         position: absolute;
         width: 0;
+    }
+
+    .popover__content {
+        max-height: 90vh;
+        max-width: 90vw;
+        overflow: auto;
     }
 
     /*****************************
@@ -176,30 +183,30 @@
     /****************************
     * Popover alignment classes *
     ****************************/
-    .popover--north .popover__content::before,
-    .popover--north .popover__content::after,
-    .popover--south .popover__content::before,
-    .popover--south .popover__content::after {
+    .popover--north .popover__container::before,
+    .popover--north .popover__container::after,
+    .popover--south .popover__container::before,
+    .popover--south .popover__container::after {
         left: 50%;
         margin-left: -5px;
     }
 
-    .popover--north .popover__content::before {
+    .popover--north .popover__container::before {
         border-top: 10px solid rgba(0, 0, 0, 0.2);
         bottom: -20px;
     }
 
-    .popover--north .popover__content::after {
+    .popover--north .popover__container::after {
         border-top: 10px solid white;
         bottom: -18px;
     }
 
-    .popover--south .popover__content::before {
+    .popover--south .popover__container::before {
         border-bottom: 10px solid rgba(0, 0, 0, 0.2);
         top: -20px;
     }
 
-    .popover--south .popover__content::after {
+    .popover--south .popover__container::after {
         border-bottom: 10px solid white;
         top: -18px;
     }
