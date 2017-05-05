@@ -35,8 +35,8 @@ $l10n->begin_html_translation();
 ?>
 
 <!doctype html>
-<!--[if IE]><html lang="<?php echo $page['lang']; ?>" class="ie-legacy"><![endif]-->
-<!--[if !IE]><!--><html lang="<?php echo $page['lang']; ?>"><!--<![endif]-->
+<!--[if IE]><html lang="<?php echo $page['lang']; ?>" dir="<?php echo ($l10n->isRtl()) ? 'rtl' : 'ltr'; ?>" class="ie-legacy"><![endif]-->
+<!--[if !IE]><!--><html lang="<?php echo $page['lang']; ?>" dir="<?php echo ($l10n->isRtl()) ? 'rtl' : 'ltr'; ?>"><!--<![endif]-->
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -78,6 +78,10 @@ $l10n->begin_html_translation();
 
         <link rel="stylesheet" type="text/css" media="all" href="https://cdn.jsdelivr.net/fontawesome/4.6.3/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" media="all" href="styles/main.css">
+
+        <?php if ($l10n->isRtl()) { ?>
+            <link rel="stylesheet" type="text/css" media="all" href="styles/rtl.css">
+        <?php } ?>
 
         <?php foreach ($page['styles'] as $style) { ?>
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo $style ?>">

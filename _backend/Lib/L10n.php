@@ -33,6 +33,17 @@ class L10n
     );
 
     /**
+     * rtlLanguages
+     * A list of all languages that are considered right to left
+     *
+     * @var array
+     */
+    public static $rtlLanguages = array(
+        'ar',
+        'he'
+    );
+
+    /**
      * languages
      * Returns a list of all langauges the website currently has.
      * NOTE: this does not return a list of enabled languages.
@@ -184,6 +195,17 @@ class L10n
         }
 
         return is_dir($this->lang_dir($lang));
+    }
+
+    /**
+     * isRtl
+     * Returns true if the current language is right to left
+     *
+     * @return boolean True if the current language is right to left
+     */
+    public function isRtl()
+    {
+        return in_array($this->lang, static::$rtlLanguages);
     }
 
     public function user_lang() {
