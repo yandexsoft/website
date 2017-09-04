@@ -6,9 +6,14 @@
 import gulp from 'gulp'
 import cache from 'gulp-cached'
 import changed from 'gulp-changed'
+import merge from 'merge-stream'
+import rename from 'gulp-rename'
+import through from 'through2'
 
+import gm from 'gm'
 import imagemin from 'gulp-imagemin'
 import svgo from 'gulp-svgo'
+import webp from 'gulp-webp'
 
 import postcss from 'gulp-postcss'
 import cssnext from 'postcss-cssnext'
@@ -17,6 +22,39 @@ const browsers = [
     'last 4 version',
     'not ie <= 11'
 ]
+
+/**
+ * sizeDown
+ * Will only continue stream if the image is below given size.
+ *
+ * @param {Number} size - The width of the image
+ * @returns {Stream}
+ */
+const sizeDown = (size) => through.obj(function (ogFile, env, cb) {
+    const gmc = gm.subClass({ imageMagic: true })
+    const file = ogFile.clone({ contents: false })
+    const gmFile = gmc(file.contents, file.path)
+
+    gmFile.size((err, val) => {
+        if (err) {
+            return cb(err)
+        }
+
+        if (val.width < size) {
+            return cb()
+        }
+
+        gmFile.resize(size, null).toBuffer((err, buf) => {
+            if (err) {
+                return cb(err)
+            }
+
+            file.contents = buf
+            this.push(file)
+            return cb()
+        })
+    })
+})
 
 /**
  * store
@@ -31,6 +69,37 @@ gulp.task('store', () => {
 
     return gulp.src(src, { base })
     .pipe(gulp.dest(dest))
+})
+
+/**
+ * webp
+ * Runs images through webp conversion
+ *
+ * @return {Task} - a gulp task for webp conversion
+ */
+gulp.task('webp', () => {
+    const base = '_images'
+    const src = ['_images/**/*.png', '_images/**/*.jpg', '_images/**/*.jpeg']
+    const dest = 'images'
+
+    const root = gulp.src(src, { base })
+    .pipe(changed(dest, { extension: '.webp' }))
+    .pipe(cache('webp'))
+    .pipe(webp())
+
+    const original = root
+    .pipe(gulp.dest(dest))
+
+    const sizes = [320, 640, 1280, 2560]
+
+    const streams = sizes.map((size) => {
+        return root
+        .pipe(sizeDown(size))
+        .pipe(rename({ suffix: `-${size}` }))
+        .pipe(gulp.dest(dest))
+    })
+
+    return merge(original, ...streams)
 })
 
 /**
@@ -143,7 +212,7 @@ gulp.task('svg', () => {
  *
  * @returns {Task} - a gulp task for all image optimizations
  */
-gulp.task('images', gulp.parallel('store', 'png', 'jpg', 'svg'))
+gulp.task('images', gulp.parallel('store', 'webp', 'png', 'jpg', 'svg'))
 
 /**
  * styles
