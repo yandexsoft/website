@@ -9,13 +9,13 @@ namespace App\Lib\Html;
  * @example
  * ```
  * <picture>
- *     <?php echo Image::from('/images/screenshots/appcenter@2x-320.webp'); ?>
- *     <?php echo Image::from('/images/screenshots/appcenter@2x-640.webp'); ?>
- *     <?php echo Image::from('/images/screenshots/appcenter@2x-1280.webp'); ?>
- *     <?php echo Image::from('/images/screenshots/appcenter@2x.webp'); ?>
- *     <?php echo Image::from('/images/screenshots/appcenter-320.webp'); ?>
- *     <?php echo Image::from('/images/screenshots/appcenter-640.webp'); ?>
- *     <?php echo Image::from('/images/screenshots/appcenter.webp'); ?>
+ *     <?php echo Image::from('images/screenshots/appcenter@2x-320.webp'); ?>
+ *     <?php echo Image::from('images/screenshots/appcenter@2x-640.webp'); ?>
+ *     <?php echo Image::from('images/screenshots/appcenter@2x-1280.webp'); ?>
+ *     <?php echo Image::from('images/screenshots/appcenter@2x.webp'); ?>
+ *     <?php echo Image::from('images/screenshots/appcenter-320.webp'); ?>
+ *     <?php echo Image::from('images/screenshots/appcenter-640.webp'); ?>
+ *     <?php echo Image::from('images/screenshots/appcenter.webp'); ?>
  *     <img src="images/screenshots/appcenter.png" alt="AppCenter Screenshot">
  * </picture>
  * ```
