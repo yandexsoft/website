@@ -349,6 +349,7 @@ input:focus + .focus-reveal {
 #appcenter {
     display: flex;
     justify-content: center;
+    overflow-x: hidden;
     padding: 48px 0;
 }
 
