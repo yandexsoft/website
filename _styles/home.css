@@ -87,6 +87,23 @@ input:focus + .focus-reveal {
     top: 1px;
 }
 
+/*******************
+* Payments Section *
+*******************/
+
+#sticky-amounts {
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    padding: 12px;
+    position: sticky;
+    top: 0;
+    z-index: 9;
+    left: 0;
+    right: 0;
+    width: 100%;
+}
+
 /***********
 * Sections *
 ***********/
