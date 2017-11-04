@@ -56,7 +56,7 @@ export default {
     output: {
         filename: '[name].js',
         path: path.resolve(__dirname, 'scripts'),
-        publicPath: '/scripts',
+        publicPath: '/scripts/',
         sourceMapFilename: '[name].map.js'
     },
     module: {
@@ -70,12 +70,17 @@ export default {
                     targets: { browsers }
                 }]]
             }
+        }, {
+            test: /\.vue$/,
+            loader: 'vue-loader'
         }]
     },
     resolve: {
         alias: {
+            'vue$': 'vue/dist/vue.esm.js',
             '~': path.resolve(__dirname, '_scripts')
-        }
+        },
+        extensions: ['.js', '.vue', '.json']
     },
     plugins: [
         new webpack.optimize.CommonsChunkPlugin({

@@ -6,6 +6,7 @@
     $page['title'] = 'A fast and open replacement for Windows and macOS &sdot; elementary OS';
 
     $page['scripts'] = array(
+        'scripts/index.js',
         'scripts/slingshot.js',
         'scripts/download.js',
         'scripts/showcase.run.js'
@@ -32,35 +33,14 @@
         </section>
 
         <section id="sticky-amounts">
-            <div class="grid">
-                <div class="half">
-                    <h4 id="pay-what-you-want">Pay What You Want:</h4>
-                </div>
+            <div class="layout__container">
+                <p id="pay-what-you-want">Pay What You Want:</p>
 
-                <div class="half">
-                    <?php
-                        $already_paid = (os_payment_getcookie($config['release_version']) > 0);
-                        if ($already_paid) {
-                    ?>
-                    <div id="choice-buttons">
-                        <input type="hidden" id="amount-ten" value="0">
-                    </div>
-                    <?php } else { ?>
-                    <div id="choice-buttons">
-                        <button id="amount-five"        value="5"  class="small-button payment-button target-amount">5</button>
-                        <button id="amount-ten"         value="10" class="small-button payment-button target-amount checked">10</button>
-                        <button id="amount-twenty-five" value="25" class="small-button payment-button target-amount">25</button>
-                        <div>
-                            <span class="pre-amount">$</span>
-                            <input type="number" step="0.01" min="0" max="999999.99" id="amount-custom" class="button small-button target-amount" placeholder="Custom">
-                            <p class="small-label focus-reveal text-center">Enter any dollar amount.</p>
-                        </div>
-                    </div>
-                    <?php } ?>
-                    <div class="column">
-                        <button type="submit" id="download" class="suggested-action"><?php echo ($already_paid) ? "Download elementary OS" : "Purchase elementary OS"; ?></button>
-                        <p class="small-label"><?php echo $config['release_version'] . ' ' . $config['release_title']; ?> | 1.37 GB (for PC or Mac)</p>
-                    </div>
+                <div v-cloak>
+                    <?php $already_paid = (os_payment_getcookie($config['release_version']) > 0); ?>
+                    <humble-button />
+
+                    <p class="small-label"><?php echo $config['release_version'] . ' ' . $config['release_title']; ?> | 1.37 GB (for PC or Mac)</p>
                     <div style="clear:both;"></div>
                 </div>
             </div>

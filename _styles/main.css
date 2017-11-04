@@ -230,6 +230,16 @@ img.inline + div.inline {
     text-align: right;
 }
 
+/*****************
+* Layout Helpers *
+*****************/
+
+.layout__container {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+}
+
 /*********
 * NAVBAR *
 *********/
@@ -1015,6 +1025,7 @@ input:focus::placeholder {
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: 54;
 }
 
 #legacy-warning p {
@@ -1365,4 +1376,12 @@ i.fa.fa-close.close-modal {
     .flex-row .flex-column p {
         text-align: left;
     }
+}
+
+/*******************
+* Random utilities *
+*******************/
+
+[v-cloak] {
+    display: none;
 }
