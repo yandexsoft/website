@@ -22,28 +22,28 @@ include $template['alert'];
 
 <div class="row devices">
     <div class="column third">
-        <img src="https://system76.com/assets/products/galp2/feature.jpg" />
+        <img src="https://system76.com/assets/products/galp2/thumb.png" />
         <h3>Laptop</h3>
-        <p>Thin and light aluminum with a HiDPI display, backlit keyboard, and lots of ports.</p>
+        <p>Thin and light aluminum body with a HiDPI display, backlit keyboard, and a multitouch trackpad.</p>
     </div>
 
     <div class="column third">
-        <img src="https://system76.com/assets/products/meer3/feature.jpg" />
+        <img src="https://system76.com/assets/products/meer3/thumb.png" />
         <h3>Desktop</h3>
-        <p>Compact and efficient while packing a surprising punch.</p>
+        <p>Compact and efficient little desktop that packs a surprising punch.</p>
     </div>
 
-    <div class="column third">
+    <!--div class="column third">
         <img src="http://i.dell.com/is/image/DellContent//content/dam/global-site-design/product_images/peripherals/output_devices/dell/monitors/u2715h/global_spi/monitor-u2715h-right-generic-hero-504x350.psd?fmt=png-alpha" />
         <h3>Display</h3>
         <p>Big, bright, beautiful, and accurate.</p>
-    </div>
+    </div-->
 </div>
 
 <div class="row features">
     <div class="column half">
         <h2>Features You Expect</h2>
-        <p>As a reference platform, each device includes the modern features you'd expect from a new consumer device. Both feature a compact size, aluminum construction, built-in WiFi and Bluetooth, and USB Type-C standard. The laptop adds a HiDPI display, backlit keyboard, HD webcam, and multitouch trackpad.</p>
+        <p>As a reference platform, each device includes the modern features you'd expect from a new consumer device. Both feature a compact size, aluminum construction, built-in WiFi and Bluetooth, and USB Type-C standard. The laptop includes a HiDPI display, backlit keyboard, HD webcam, and multitouch trackpad.</p>
     </div>
     <div class="column half">
         <img src="https://system76.com/assets/products/galp3/right.jpg" />
