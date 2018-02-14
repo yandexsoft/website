@@ -17,7 +17,7 @@ include $template['alert'];
         ?>
         Reference Devices
     </h1>
-    <h4>What we use to develop</h4>
+    <h4>Known hardware platforms that we develop and test against</h4>
 </div>
 
 <div class="row devices">
@@ -32,12 +32,6 @@ include $template['alert'];
         <h3>Desktop</h3>
         <p>Compact and efficient little desktop that packs a surprising punch.</p>
     </div>
-
-    <!--div class="column third">
-        <img src="http://i.dell.com/is/image/DellContent//content/dam/global-site-design/product_images/peripherals/output_devices/dell/monitors/u2715h/global_spi/monitor-u2715h-right-generic-hero-504x350.psd?fmt=png-alpha" />
-        <h3>Display</h3>
-        <p>Big, bright, beautiful, and accurate.</p>
-    </div-->
 </div>
 
 <div class="row features">
@@ -76,15 +70,35 @@ include $template['alert'];
     </div>
     <div class="column half">
         <h2>Battle Tested</h2>
-        <p>Use the same hardware we do to build elementary OS. Rest assured that it's going to last, be supported, and stay supported through updates.</p>
+        <p>We actively use and test against each reference device. Rest assured that it's going to last, be supported, and stay supported through updates.</p>
     </div>
 </div>
 
-<style>
-    .row.devices img {
+<div class="row buy">
+    <div class="column third">
+        <h2>Laptop</h2>
+        <img src="https://system76.com/assets/products/galp2/thumb.png" />
+        <ul>
+            <li>Some</li>
+            <li>Tech</li>
+            <li>Specs</li>
+            <li>Here</li>
+        </ul>
+        <a href="https://system76.com" class="button suggested-action">Purchase Laptop</a>
+    </div>
 
-    }
-</style>
+    <div class="column third">
+        <h2>Desktop</h2>
+        <img src="https://system76.com/assets/products/meer3/thumb.png" />
+        <ul>
+            <li>Some</li>
+            <li>Tech</li>
+            <li>Specs</li>
+            <li>Here</li>
+        </ul>
+        <a href="https://system76.com" class="button suggested-action">Purchase Desktop</a>
+    </div>
+</div>
 
 <?php
 include $template['footer'];
