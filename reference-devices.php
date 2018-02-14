@@ -17,7 +17,6 @@ include $template['alert'];
         ?>
         Reference Devices
     </h1>
-    <h4>Known hardware platforms that we develop and test against</h4>
 </div>
 
 <div class="row devices">
@@ -70,7 +69,7 @@ include $template['alert'];
     </div>
     <div class="column half">
         <h2>Battle Tested</h2>
-        <p>We actively use and test against each reference device. Rest assured that it's going to last, be supported, and stay supported through updates.</p>
+        <p>We've used and tested against each reference device. Rest assured that it's going to last, be supported, and stay supported through updates.</p>
     </div>
 </div>
 
