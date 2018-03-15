@@ -9,10 +9,10 @@ $config = array(
     'release_filename' => 'elementaryos-0.4.1-stable.20180215.iso',
     'release_magnet'   => '54dca0477d74d88ed051a9cd62fe5359151e7823',
 
-    'chart_enable'         => false,
+    'chart_enable'         => true,
     'chart_link_project'   => 'elementary',
-    'chart_link_milestone' => 'loki-rc1',
-    'chart_link_name'      => 'Loki RC1 Milestone',
+    'chart_link_milestone' => 'juno-beta1',
+    'chart_link_name'      => 'Juno Beta 1 Milestone',
 
     'stripe_sk' => 'sk_test_hoigesrjgoisrhgilgjrsfjs',
     'stripe_pk' => 'pk_test_hoigesrjgoisrhgilgjrsfjs',
