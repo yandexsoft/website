@@ -20,7 +20,7 @@ function log_echo($msg, $echo = false) {
         isset($config['sentry_dsn']) &&
         $config['sentry_key'] !== false
     ) {
-        Sentry\captureException($msg););
+        Sentry\captureException($msg);
     }
     if ( $echo ) echo $msg.PHP_EOL;
 }
