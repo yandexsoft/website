@@ -34,7 +34,7 @@ $config = array(
 
     'mandrill_key' => 'aaaaaaaaaaaaaaaaaaaaaa',
 
-    'sentry_key' => false,
+    'sentry_dsn' => false,
     'sentry_pub' => false,
 
     'twitter_consumer_key'    => 'test_ckey',
